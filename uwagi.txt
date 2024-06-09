@@ -1,0 +1,12 @@
+Pamiętaj zawsze – najpierw import, następnie rejestracja, potem użycie.
+
+Tak samo jest z komponentami. 
+Za każdym razem możesz wywoływać ten sam komponent z innymi parametrami, 
+dzięki czemu np. jeden i ten sam komponent pokaże inną treść albo… wyrenderuje inną listę książek.
+
+To prawdopodobnie najłatwiejsza analogia, którą możesz tutaj zauważyć. Propsy komponentu są niczym parametry funkcji.
+
+To, co koniecznie musisz zapamiętać na tym etapie to informacja, 
+że w Vue jest możliwa komunikacja na linii rodzic -> dziecko i to w obie strony. 
+Komponent rodzica może komunikować się z komponentem dziecka poprzez propsy, 
+a komunikacja w drugą stronę jest możliwa przy użyciu eventów. Więcej praktyki już za chwilę.
