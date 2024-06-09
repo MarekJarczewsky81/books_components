@@ -14,23 +14,14 @@
     <!-- no books message -->
       <books-length-msg :length="books.length" />
     <!-- add book form -->
-    <form @submit.prevent="handleSubmit">
-      <label>
-        Title:
-        <input v-model="form.title" type="text" name="title">
-      </label>
-      <label>
-        price:
-        <input v-model="form.price" type="number" name="price">
-      </label>
-      <button>Add book</button>
-    </form>
+    <book-form @add="addBook" />
   </div>
 </template>
 
 <script>
 import BooksList from './components/BooksList'
 import BooksLengthMsg from './components/BooksLengthMsg'
+import BookForm from './components/BookForm'
 
 export default {
   name: 'App',
@@ -43,20 +34,13 @@ export default {
       {
         title: 'Of Mice and Men',
         price: 18
-      }],
-    form: {
-      index: 0,
-      title: '',
-      price: 0
-    }
+      }]
   }),
-  components: { BooksList, BooksLengthMsg },
+  components: { BooksList, BooksLengthMsg, BookForm },
   methods: {
-    handleSubmit () {
-      this.books.push({ ...this.form })
-      this.form.title = ''
-      this.form.price = 0
-    },
+    addBook (book) {
+      this.books.push({...book})
+    }
     removeBook (index) {
       this.books.splice(index, 1)
     }
