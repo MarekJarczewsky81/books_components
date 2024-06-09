@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <!-- heading -->
     <header>
       <h1>Books<span>.app</span></h1>
@@ -12,7 +11,7 @@
       :books="books" />
 
     <!-- no books message -->
-      <books-length-msg :length="books.length" />
+    <books-length-msg :length="books.length" />
     <!-- add book form -->
     <book-form @add="addBook" />
   </div>
@@ -39,7 +38,7 @@ export default {
   components: { BooksList, BooksLengthMsg, BookForm },
   methods: {
     addBook (book) {
-      this.books.push({...book})
+      this.books.push({ ...book })
     },
     removeBook (index) {
       this.books.splice(index, 1)
