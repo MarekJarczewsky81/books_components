@@ -14,6 +14,8 @@
     <books-length-msg :length="books.length" />
     <!-- add book form -->
     <book-form @add="addBook" />
+    <!-- add book summary -->
+    <books-summary :length="books.length" :books="books"/>
   </div>
 </template>
 
@@ -21,6 +23,7 @@
 import BooksList from './components/BooksList'
 import BooksLengthMsg from './components/BooksLengthMsg'
 import BookForm from './components/BookForm'
+import BooksSummary from './components/BooksSummary'
 
 export default {
   name: 'App',
@@ -35,7 +38,7 @@ export default {
         price: 18
       }]
   }),
-  components: { BooksList, BooksLengthMsg, BookForm },
+  components: { BooksList, BooksLengthMsg, BookForm, BooksSummary },
   methods: {
     addBook (book) {
       this.books.push({ ...book })
