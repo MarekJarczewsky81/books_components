@@ -24,7 +24,7 @@ export default {
     totalPrice () {
       let sum = 0
       for (const book of this.books) {
-        sum += computed(() => book.price).value
+        sum += computed(() => parseInt(book.price)).value
       }
       return sum
     }

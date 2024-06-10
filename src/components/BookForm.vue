@@ -6,7 +6,7 @@
         <input v-model="form.title" type="text" name="title">
       </label>
       <label>
-        price:
+        Price:
         <input v-model="form.price" type="number" name="price">
       </label>
       <button>Add book</button>

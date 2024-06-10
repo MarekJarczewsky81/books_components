@@ -1,36 +1,38 @@
 <template>
   <div>
     <ul>
-      <li
+      <book-item
+        v-for="(book, index) in books"
         :key="index"
-        v-for="(book, index) in books">
-          {{ book.title }}, {{ book.price }}
-          <!-- <button @click="removeBook(index)">Remove</button> -->
-          <button @click="$emit('remove', index)">Remove</button>
-          <!--funkcja $emit: przycisk emituje do rodzica event remove, przy okazji przekazując też informacje o indeksie książki do usunięcia -->
-      </li>
+        :book="book"
+        :index="index"
+        @remove="handleRemove"
+      />
     </ul>
     <p v-show="!books.length">No books...</p>
   </div>
 </template>
 
 <script>
+import BookItem from './BookItem'
+
 export default {
   name: 'BooksList',
+  components: { BookItem },
   props: {
     books: {
       type: Array,
       required: true
+    },
+    index: {
+      type: Number,
+      required: true
     }
-    // removeBook: {
-    //   type: Function,
-    //   required: true
-    // }
+  },
+  methods: {
+    handleRemove (index) {
+      this.$emit('remove', index)
+    }
   }
-  // Skrócona wersje zapisu zapisu, bez dodatkowego obiektu
-  // props: {
-  //   books: Array
-  // }
-  // props: ['books']
 }
 </script>

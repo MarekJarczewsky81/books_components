@@ -6,9 +6,7 @@
     </header>
 
     <!-- books list -->
-    <books-list
-      @remove="removeBook"
-      :books="books" />
+    <books-list :books="books" @remove="removeBook"/>
 
     <!-- no books message -->
     <books-length-msg :length="books.length" />
